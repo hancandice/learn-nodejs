@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GIF Chat Room</title>
+</head>
+
+<body>
+    <div>Check console tab and network tab by pressing F12</div>
+    <script>
+        const webSocket = new WebSocket("ws://localhost:8005")
+        webSocket.onopen = function () {
+            console.log("Successfully connected sever and websocket!")
+        }
+        webSocket.onmessage = function (event) {
+            console.log(event.data)
+            webSocket.send("Send answer from client to server")
+        }
+    </script>
+</body>
+
+</html>
