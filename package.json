@@ -26,6 +26,7 @@
     "express-session": "^1.17.3",
     "morgan": "^1.10.0",
     "nunjucks": "^3.2.3",
+    "socket.io": "2",
     "ws": "^8.11.0"
   }
 }

@@ -8,15 +8,18 @@
 
 <body>
     <div>Check console tab and network tab by pressing F12</div>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
-        const webSocket = new WebSocket("ws://localhost:8005")
-        webSocket.onopen = function () {
-            console.log("Successfully connected sever and websocket!")
-        }
-        webSocket.onmessage = function (event) {
-            console.log(event.data)
-            webSocket.send("Send answer from client to server")
-        }
+        const socket = io.connect("http://localhost:8005", {
+            path: "/socket.io"
+        })
+        socket.on("news", function (data) {
+            console.log(data)
+            socket.emit(
+                "reply",
+                "Hello Node.JS"
+            )
+        })
     </script>
 </body>
 
