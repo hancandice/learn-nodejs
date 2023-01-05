@@ -9,6 +9,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const webSocket = require("./socket");
 const indexRouter = require("./routes");
+const connect = require("./schemas");
 
 const app = express();
 app.set("port", process.env.PORT || 8005);
